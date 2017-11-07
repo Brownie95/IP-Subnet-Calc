@@ -1,9 +1,11 @@
 package abrown101476628.ipsubnetcalculator;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
@@ -27,10 +29,10 @@ Switch DayNightt;
             super.onCreate(savedInstanceState);
             setContentView(R.layout.about_settings);
 
-
-
             DayNightt = (Switch) findViewById(R.id.toggleLightDark);
-            DayNightt.setChecked(false);
+            SharedPreferences sharedPreference = getSharedPreferences("switch", MODE_PRIVATE);
+            boolean isChecked = sharedPreference.getBoolean("status",false);
+            DayNightt.setChecked(isChecked);
             DayNightt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -41,6 +43,10 @@ Switch DayNightt;
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                         recreate();
                     }
+                    SharedPreferences.Editor editor = getSharedPreferences("switch", MODE_PRIVATE).edit();
+                    editor.putBoolean("status", isChecked);
+                    editor.commit();
+                    Log.d("Lonetree",isChecked+"");
                 }
             });
 
