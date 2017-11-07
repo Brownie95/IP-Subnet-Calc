@@ -20,6 +20,19 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences sharedPreference = getSharedPreferences("switch", MODE_PRIVATE);
+        boolean isChecked = sharedPreference.getBoolean("status", false);
+        if (isChecked) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+        else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+    }
+
     public void toVLSMPage(View v) {
         startActivity(new Intent(MainActivity.this, Calculator.class));
     }
