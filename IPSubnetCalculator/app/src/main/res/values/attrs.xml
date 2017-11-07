@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="IpAppTheme">
+        <attr name="primaryTextColor" format="color"/>
+        <attr name="secondaryTextColor" format="color"/>
+        <attr name="mainBackground" format="integer"/>
+        <attr name="buttonBackground" format="integer"/>
+        <attr name="inputFieldColor" format="color"/>
+        <attr name="outputFieldColor" format="color"/>
+        <attr name="mainBackgroundButton" format="integer"/>
+        <attr name="toggleThumb" format="color"/>
+
+    </declare-styleable>
+
+</resources>

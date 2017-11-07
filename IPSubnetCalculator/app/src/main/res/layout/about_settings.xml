@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/mainBackgroundButton"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="73dp"
+            android:layout_height="67dp"
+            android:background="@android:color/transparent"
+            android:onClick="backPage"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/headerAboutSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.57"
+            android:gravity="center"
+            android:text="About / Settings"
+            android:textColor="?attr/primaryTextColor"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/versionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.06"
+        android:gravity="center"
+        android:text="Version"
+        android:textAlignment="center"
+        android:textColor="?attr/primaryTextColor"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Alpha 0.1"
+        android:textColor="?attr/primaryTextColor" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.48"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Light"
+            android:textAlignment="center"
+            android:textColor="?attr/primaryTextColor" />
+
+        <Switch
+            android:id="@+id/toggleLightDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:splitTrack="false"
+            android:switchMinWidth="75dp"
+            android:textOff="@string/light"
+            android:textOn="@string/dark"
+            android:thumbTint="?attr/toggleThumb"
+            android:trackTint="?attr/toggleThumb"
+            tools:checked="false" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dark"
+            android:textAlignment="center"
+            android:textColor="?attr/primaryTextColor" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.43"
+        android:gravity="center"
+        android:text="Created by Andrew Brown"
+        android:textColor="?attr/primaryTextColor" />
+
+</LinearLayout>

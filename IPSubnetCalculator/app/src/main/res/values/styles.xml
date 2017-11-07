@@ -1,0 +1,27 @@
+<resources>
+
+    <!-- Light base activity theme -->
+    <style name="ActivityTheme.Primary.Base.Light" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="primaryTextColor">#000000</item>
+        <item name="secondaryTextColor">#404044</item>
+        <item name="inputFieldColor">#FFFF</item>
+        <item name="buttonBackground">@drawable/btn_background_light</item>
+        <item name="mainBackground">@drawable/main_background_light</item>
+        <item name="mainBackgroundButton">@drawable/backbtn_background_light</item>
+        <item name="toggleThumb">#2376C4</item>
+        <item name="outputFieldColor">#d6d8db</item>
+    </style>
+
+    <!-- Dark base activity theme -->
+    <style name="ActivityTheme.Primary.Base.Dark"    parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="primaryTextColor">#cccccc</item>
+        <item name="secondaryTextColor">#919699</item>
+        <item name="inputFieldColor">#333333</item>
+        <item name="buttonBackground">@drawable/btn_background_dark</item>
+        <item name="mainBackground">@drawable/main_background_dark</item>
+        <item name="mainBackgroundButton">@drawable/backbtn_background_dark</item>
+        <item name="toggleThumb">#8330B3</item>
+        <item name="outputFieldColor">#333333</item>
+    </style>
+
+</resources>

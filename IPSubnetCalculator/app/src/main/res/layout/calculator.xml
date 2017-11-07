@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/mainBackgroundButton"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.03"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="73dp"
+            android:layout_height="67dp"
+            android:background="@android:color/transparent"
+            android:onClick="backPage"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/headerCalculator"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.69"
+            android:gravity="center"
+            android:text="Calculator"
+            android:textColor="?attr/primaryTextColor"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textIPAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="IP Address"
+        android:textColor="?attr/primaryTextColor" />
+
+    <LinearLayout
+        android:id="@+id/layoutIPAddressOctals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/octet4"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="?attr/inputFieldColor"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:minLines="1"
+            android:textColor="?attr/primaryTextColor" />
+
+        <EditText
+            android:id="@+id/octet3"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="?attr/inputFieldColor"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:minLines="1"
+            android:textColor="?attr/primaryTextColor" />
+
+        <EditText
+            android:id="@+id/octet2"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="?attr/inputFieldColor"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:minLines="1"
+            android:textColor="?attr/primaryTextColor" />
+
+        <EditText
+            android:id="@+id/octet1"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="?attr/inputFieldColor"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:minLines="1"
+            android:textColor="?attr/primaryTextColor" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Subnet Mask"
+        android:textColor="?attr/primaryTextColor" />
+
+    <LinearLayout
+        android:id="@+id/layoutSubnetAddressOctals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/octetSubnet4"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="?attr/inputFieldColor"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:minLines="1"
+            android:textColor="?attr/primaryTextColor" />
+
+        <EditText
+            android:id="@+id/octetSubnet3"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="?attr/inputFieldColor"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:minLines="1"
+            android:textColor="?attr/primaryTextColor" />
+
+        <EditText
+            android:id="@+id/octetSubnet2"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="?attr/inputFieldColor"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:minLines="1"
+            android:textColor="?attr/primaryTextColor" />
+
+        <EditText
+            android:id="@+id/octetSubnet1"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="?attr/inputFieldColor"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:minLines="1"
+            android:textColor="?attr/primaryTextColor" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="150dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.09"
+        android:background="?attr/buttonBackground"
+        android:gravity="center"
+        android:onClick="myClickHandler"
+        android:text="Calculate"
+        android:textColor="?attr/primaryTextColor" />
+
+    <TextView
+        android:id="@+id/outputTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_weight="0.79"
+        android:background="?attr/outputFieldColor"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp"
+        android:textAlignment="textStart"
+        android:textColor="?attr/secondaryTextColor" />
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="app_name">IP Subnet Calculator</string>
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
+    <string name="glossary_and_tutorial">Glossary and Tutorial</string>
+    <string name="help">Help</string>
+    <string name="for_variable_subnet_sizes">For variable Subnet sizes.</string>
+    <string name="about_settings">About / Settings</string>
+    <string name="variable_length_subnet_calculator_vlsm">Variable-Length Subnet Calculator (VLSM)</string>
+    <string name="ip_subnet_calculator">IP Subnet Calculator</string>
+</resources>

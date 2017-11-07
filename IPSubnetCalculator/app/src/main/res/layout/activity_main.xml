@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/mainBackground"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/headerMain"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_weight="0.07"
+        android:gravity="center_vertical"
+        android:text="@string/ip_subnet_calculator"
+        android:textAlignment="center"
+        android:textColor="?attr/primaryTextColor"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnVLSM"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="50dp"
+        android:background="?attr/buttonBackground"
+        android:gravity="center"
+        android:lines="2"
+        android:onClick="toVLSMPage"
+        android:text="@string/variable_length_subnet_calculator_vlsm"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="?attr/primaryTextColor"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/infoSubnetTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/for_variable_subnet_sizes"
+        android:textAlignment="center"
+        android:textColor="?attr/secondaryTextColor" />
+
+    <Button
+        android:id="@+id/btnHelp"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="50dp"
+        android:background="?attr/buttonBackground"
+        android:gravity="center"
+        android:onClick="toHelpPage"
+        android:text="@string/help"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="?attr/primaryTextColor"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/infoHelpTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/glossary_and_tutorial"
+        android:textAlignment="center"
+        android:textColor="?attr/secondaryTextColor" />
+
+    <Button
+        android:id="@+id/btnAbout_Settings"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="50dp"
+        android:background="?attr/buttonBackground"
+        android:gravity="center"
+        android:onClick="toAboutPage"
+        android:text="@string/about_settings"
+        android:textAllCaps="false"
+        android:textColor="?attr/primaryTextColor"
+        android:textSize="14sp" />
+</LinearLayout>
