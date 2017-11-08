@@ -46,7 +46,7 @@ Switch DayNightt;
                     SharedPreferences.Editor editor = getSharedPreferences("switch", MODE_PRIVATE).edit();
                     editor.putBoolean("status", isChecked);
                     editor.commit();
-                    Log.d("Lonetree",isChecked+"");
+                    Log.d("LTSubnetCalc",isChecked+"");
                 }
             });
 
