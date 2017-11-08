@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
+import android.text.InputFilter;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,11 +23,26 @@ public class Calculator extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calculator);
+
+
+        //Limit input fields to max value of 255
+        EditText oct1 = (EditText) findViewById(R.id.octet1);
+        EditText oct2 = (EditText) findViewById(R.id.octet2);
+        EditText oct3 = (EditText) findViewById(R.id.octet3);
+        EditText oct4 = (EditText) findViewById(R.id.octet4);
+
+        oct1.setFilters(new InputFilter[]{ new inputFilterMinMax("0", "255")});
+        oct2.setFilters(new InputFilter[]{ new inputFilterMinMax("0", "255")});
+        oct3.setFilters(new InputFilter[]{ new inputFilterMinMax("0", "255")});
+        oct4.setFilters(new InputFilter[]{ new inputFilterMinMax("0", "255")});
+
     }
 
     public void backPage(View v) {
         startActivity(new Intent(Calculator.this, MainActivity.class));
     }
+
+
 
     public void myClickHandler(View v) {
 
