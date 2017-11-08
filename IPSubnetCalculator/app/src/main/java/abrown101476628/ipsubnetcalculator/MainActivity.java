@@ -18,14 +18,6 @@ public class MainActivity extends Activity {
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SharedPreferences sharedPreference = getSharedPreferences("switch", MODE_PRIVATE);
-        boolean isChecked = sharedPreference.getBoolean("status", false);
-        if (isChecked) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        }
-        else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        }
     }
 
 
