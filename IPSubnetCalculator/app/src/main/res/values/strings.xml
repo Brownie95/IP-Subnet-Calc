@@ -5,8 +5,12 @@
     <string name="dark">Dark</string>
     <string name="glossary_and_tutorial">Glossary and Tutorial</string>
     <string name="help">Help</string>
-    <string name="for_variable_subnet_sizes">For variable Subnet sizes.</string>
+    <string name="subnetdescription">For calculating subnets.</string>
     <string name="about_settings">About / Settings</string>
-    <string name="variable_length_subnet_calculator_vlsm">Variable-Length Subnet Calculator (VLSM)</string>
+    <string name="subnetcalculator">Subnet Calculator</string>
     <string name="ip_subnet_calculator">IP Subnet Calculator</string>
+    <string name="tutorial">Enter an IPv4 address into the provided boxes. \n \n Enter the Mask used for the ip. \n \n Press Calculate. \n
+    The subnet information will be printed into the text box.</string>
+    <string name="glossary">IPv4 - IP Address \n Subnet - Subdivision of an IP network \n VLSM - Variable-Length Subnetting \n
+        CIDR - Classless Inter-Domain Routing</string>
 </resources>

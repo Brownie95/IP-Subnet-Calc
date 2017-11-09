@@ -137,8 +137,8 @@ public class Calculator extends AppCompatActivity {
 
         outputResult.setText("Binary: " + binaryValue4 + "." + binaryValue3  + "." + binaryValue2  + "." + binaryValue1 + "\n"
                 + "Mask:   " + binaryOct4Result + "." + binaryOct3Result + "." + binaryOct2Result + "." + binaryOct1Result + "\n"
-        + "Broadcast Address: " + "\n" + "Network Address: " + "\n" + "First Useable Address: "
-                        + "\n" + "Last Useable Address: " + "\n"
+        + "Network Address: " + "\n" + "Broadcast Address: " + "\n" +  "First Useable Address: "
+                        + "\n" + "Last Useable Address: " + "\n" + "Ip Class: "
                  );
     }
 }

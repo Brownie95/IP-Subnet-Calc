@@ -27,7 +27,7 @@
         android:gravity="center"
         android:lines="2"
         android:onClick="toVLSMPage"
-        android:text="@string/variable_length_subnet_calculator_vlsm"
+        android:text="@string/subnetcalculator"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="?attr/primaryTextColor"
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/for_variable_subnet_sizes"
+        android:text="@string/subnetdescription"
         android:textAlignment="center"
         android:textColor="?attr/secondaryTextColor" />
 
