@@ -107,35 +107,23 @@ public class Calculator extends AppCompatActivity {
         subnetValue2 = Integer.parseInt(subOctet2Data.getText().toString());
         subnetValue1 = Integer.parseInt(subOctet1Data.getText().toString());
 
-        binaryValue4 = Integer.toBinaryString(ipValue4);
-        binaryValue3 = Integer.toBinaryString(ipValue3);
-        binaryValue2 = Integer.toBinaryString(ipValue2);
-        binaryValue1 = Integer.toBinaryString(ipValue1);
-
-
         binaryValue4 = String.format("%8s", Integer.toBinaryString(ipValue4)).replace(" ", "0");
         binaryValue3 = String.format("%8s", Integer.toBinaryString(ipValue3)).replace(" ", "0");
         binaryValue2 = String.format("%8s", Integer.toBinaryString(ipValue2)).replace(" ", "0");
         binaryValue1 = String.format("%8s", Integer.toBinaryString(ipValue1)).replace(" ", "0");
-
 
         oct4Result = ipValue4 & subnetValue4;
         oct3Result = ipValue3 & subnetValue3;
         oct2Result = ipValue2 & subnetValue2;
         oct1Result = ipValue1 & subnetValue1;
 
-        binaryOct4Result = Integer.toBinaryString(oct4Result);
-        binaryOct3Result = Integer.toBinaryString(oct3Result);
-        binaryOct2Result = Integer.toBinaryString(oct2Result);
-        binaryOct1Result = Integer.toBinaryString(oct1Result);
-
         binaryOct4Result = String.format("%8s", Integer.toBinaryString(oct4Result)).replace(" ", "0");
         binaryOct3Result = String.format("%8s", Integer.toBinaryString(oct3Result)).replace(" ", "0");
         binaryOct2Result = String.format("%8s", Integer.toBinaryString(oct2Result)).replace(" ", "0");
         binaryOct1Result = String.format("%8s", Integer.toBinaryString(oct1Result)).replace(" ", "0");
-
+        
         outputResult.setText("Binary: " + binaryValue4 + "." + binaryValue3  + "." + binaryValue2  + "." + binaryValue1 + "\n"
-                + "Mask:   " + binaryOct4Result + "." + binaryOct3Result + "." + binaryOct2Result + "." + binaryOct1Result + "\n"
+                + "Mask: " + binaryOct4Result + "." + binaryOct3Result + "." + binaryOct2Result + "." + binaryOct1Result + "\n"
         + "Network Address: " + "\n" + "Broadcast Address: " + "\n" +  "First Useable Address: "
                         + "\n" + "Last Useable Address: " + "\n" + "Ip Class: "
                  );

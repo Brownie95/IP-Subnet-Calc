@@ -187,7 +187,7 @@
     <Button
         android:id="@+id/btnCalculate"
         android:layout_width="150dp"
-        android:layout_height="5dp"
+        android:layout_height="35dp"
         android:layout_marginTop="10dp"
         android:layout_weight="0.09"
         android:background="?attr/buttonBackground"
@@ -199,13 +199,13 @@
     <TextView
         android:id="@+id/outputTextView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="242dp"
         android:layout_marginTop="15dp"
-        android:layout_weight="0.79"
         android:background="?attr/outputFieldColor"
         android:paddingLeft="10dp"
         android:paddingTop="15dp"
         android:textAlignment="textStart"
-        android:textColor="?attr/secondaryTextColor" />
+        android:textColor="?attr/secondaryTextColor"
+        android:layout_weight="0.68" />
 
 </LinearLayout>
