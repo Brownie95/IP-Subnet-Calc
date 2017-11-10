@@ -52,8 +52,6 @@ public class Calculator extends AppCompatActivity {
         startActivity(new Intent(Calculator.this, MainActivity.class));
     }
 
-
-
     public void myClickHandler(View v) {
         EditText octet4Data, octet3Data, octet2Data, octet1Data, subOctet4Data, subOctet3Data, subOctet2Data, subOctet1Data;
         TextView outputResult;
@@ -97,6 +95,7 @@ public class Calculator extends AppCompatActivity {
         subOctet1Data = (EditText) findViewById(R.id.octetSubnet1);
 
         outputResult =  (TextView) findViewById(R.id.outputTextView);
+
 
         ipValue4 = Integer.parseInt(octet4Data.getText().toString());
         ipValue3 = Integer.parseInt(octet3Data.getText().toString());
