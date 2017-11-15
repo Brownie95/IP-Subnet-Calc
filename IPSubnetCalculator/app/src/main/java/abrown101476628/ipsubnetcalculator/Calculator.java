@@ -56,27 +56,37 @@ public class Calculator extends AppCompatActivity {
         EditText octet4Data, octet3Data, octet2Data, octet1Data, subOctet4Data, subOctet3Data, subOctet2Data, subOctet1Data;
         TextView outputResult;
 
+        //IP Octet values
         int ipValue4;
         int ipValue3;
         int ipValue2;
         int ipValue1;
 
+        //Subnet Octet Values
         int subnetValue4;
         int subnetValue3;
         int subnetValue2;
         int subnetValue1;
 
-        int oct4Result;
-        int oct3Result;
-        int oct2Result;
-        int oct1Result;
+        //Declared Integers for Network Address ANDing
+        int network4Result;
+        int network3Result;
+        int network2Result;
+        int network1Result;
 
+        //Declared Integer for First Usable Address
+        int firstUsable;
 
+        //broadcast Integer
+        int broadcastResult;
+
+        //Strings for Binary converted IP Octets
         String binaryValue4;
         String binaryValue2;
         String binaryValue3;
         String binaryValue1;
 
+        //Strings for Binary converted Subnet Octets
         String binaryOct4Result;
         String binaryOct3Result;
         String binaryOct2Result;
@@ -118,33 +128,39 @@ public class Calculator extends AppCompatActivity {
         binaryValue2 = String.format("%8s", Integer.toBinaryString(ipValue2)).replace(" ", "0");
         binaryValue1 = String.format("%8s", Integer.toBinaryString(ipValue1)).replace(" ", "0");
 
-
-        //Subnet ANDing
-        oct4Result = ipValue4 & subnetValue4;
-        oct3Result = ipValue3 & subnetValue3;
-        oct2Result = ipValue2 & subnetValue2;
-        oct1Result = ipValue1 & subnetValue1;
-
         //Converts subnet value to Binary
-        binaryOct4Result = String.format("%8s", Integer.toBinaryString(oct4Result)).replace(" ", "0");
-        binaryOct3Result = String.format("%8s", Integer.toBinaryString(oct3Result)).replace(" ", "0");
-        binaryOct2Result = String.format("%8s", Integer.toBinaryString(oct2Result)).replace(" ", "0");
-        binaryOct1Result = String.format("%8s", Integer.toBinaryString(oct1Result)).replace(" ", "0");
+        binaryOct4Result = String.format("%8s", Integer.toBinaryString(subnetValue4)).replace(" ", "0");
+        binaryOct3Result = String.format("%8s", Integer.toBinaryString(subnetValue3)).replace(" ", "0");
+        binaryOct2Result = String.format("%8s", Integer.toBinaryString(subnetValue2)).replace(" ", "0");
+        binaryOct1Result = String.format("%8s", Integer.toBinaryString(subnetValue1)).replace(" ", "0");
+
+        //ANDing for Network Address
+        network4Result = ipValue4 & subnetValue4;
+        network3Result = ipValue3 & subnetValue3;
+        network2Result = ipValue2 & subnetValue2;
+        network1Result = ipValue1 & subnetValue1;
 
         //Checking IP Class
         ipClass = "";
 
-        if (oct3Result == 00000000) {
+        if (network3Result == 00000000) {
             ipClass = "A";
-        } else if (oct2Result == 00000000){
+        } else if (network2Result == 00000000){
             ipClass = "B";
-        } else if (oct1Result >= 00000000) {
+        } else if (network1Result >= 00000000) {
             ipClass = "C";
         }
+
+        firstUsable = network1Result + 1;
+
+        broadcastResult = 255 - subnetValue1;
         
         outputResult.setText("Binary IP" + "\n" + binaryValue4 + "." + binaryValue3  + "." + binaryValue2  + "." + binaryValue1
-                + "\n\n" + "Binary Mask" + "\n" + binaryOct4Result + "." + binaryOct3Result + "." + binaryOct2Result + "." + binaryOct1Result + "\n"
-        + "\n" + "Network Address" + "\n\n" + "Broadcast Address" + "\n\n" +  "First Useable Address"
-                        + "\n\n" + "Last Useable Address" + "\n\n" + "Ip Class" + "\n" + ipClass);
+                + "\n\n" + "Binary Mask" + "\n" + binaryOct4Result + "." + binaryOct3Result + "." + binaryOct2Result + "." + binaryOct1Result
+                + "\n" + "\n" + "Network Address" + "\n" + network4Result + "." + network3Result + "." + network2Result + "." + network1Result +
+                "\n\n" + "Broadcast Address" + "\n" + broadcastResult + "\n\n" +
+                "First Usable Address" + "\n"  + network4Result + "." + network3Result + "." + network2Result + "." + firstUsable + "\n\n" +
+                "Last Usable Address" + "\n\n" +
+                "Ip Class" + "\n" + ipClass);
     }
 }
