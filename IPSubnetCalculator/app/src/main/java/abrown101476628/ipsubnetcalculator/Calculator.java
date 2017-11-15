@@ -71,6 +71,7 @@ public class Calculator extends AppCompatActivity {
         int oct2Result;
         int oct1Result;
 
+
         String binaryValue4;
         String binaryValue2;
         String binaryValue3;
@@ -80,6 +81,9 @@ public class Calculator extends AppCompatActivity {
         String binaryOct3Result;
         String binaryOct2Result;
         String binaryOct1Result;
+
+        //Declared String for the ip Class
+        String ipClass;
 
 
         //Ip Octets
@@ -96,36 +100,51 @@ public class Calculator extends AppCompatActivity {
 
         outputResult =  (TextView) findViewById(R.id.outputTextView);
 
-
+        //Passes ip octet Integers into String values
         ipValue4 = Integer.parseInt(octet4Data.getText().toString());
         ipValue3 = Integer.parseInt(octet3Data.getText().toString());
         ipValue2 = Integer.parseInt(octet2Data.getText().toString());
         ipValue1 = Integer.parseInt(octet1Data.getText().toString());
 
+        //Passes subnet octet Integers into String values
         subnetValue4 = Integer.parseInt(subOctet4Data.getText().toString());
         subnetValue3 = Integer.parseInt(subOctet3Data.getText().toString());
         subnetValue2 = Integer.parseInt(subOctet2Data.getText().toString());
         subnetValue1 = Integer.parseInt(subOctet1Data.getText().toString());
 
+        //Converts ip value to Binary
         binaryValue4 = String.format("%8s", Integer.toBinaryString(ipValue4)).replace(" ", "0");
         binaryValue3 = String.format("%8s", Integer.toBinaryString(ipValue3)).replace(" ", "0");
         binaryValue2 = String.format("%8s", Integer.toBinaryString(ipValue2)).replace(" ", "0");
         binaryValue1 = String.format("%8s", Integer.toBinaryString(ipValue1)).replace(" ", "0");
 
+
+        //Subnet ANDing
         oct4Result = ipValue4 & subnetValue4;
         oct3Result = ipValue3 & subnetValue3;
         oct2Result = ipValue2 & subnetValue2;
         oct1Result = ipValue1 & subnetValue1;
 
+        //Converts subnet value to Binary
         binaryOct4Result = String.format("%8s", Integer.toBinaryString(oct4Result)).replace(" ", "0");
         binaryOct3Result = String.format("%8s", Integer.toBinaryString(oct3Result)).replace(" ", "0");
         binaryOct2Result = String.format("%8s", Integer.toBinaryString(oct2Result)).replace(" ", "0");
         binaryOct1Result = String.format("%8s", Integer.toBinaryString(oct1Result)).replace(" ", "0");
+
+        //Checking IP Class
+        ipClass = "";
+
+        if (oct3Result == 00000000) {
+            ipClass = "A";
+        } else if (oct2Result == 00000000){
+            ipClass = "B";
+        } else if (oct1Result >= 00000000) {
+            ipClass = "C";
+        }
         
         outputResult.setText("Binary: " + binaryValue4 + "." + binaryValue3  + "." + binaryValue2  + "." + binaryValue1 + "\n"
                 + "Mask: " + binaryOct4Result + "." + binaryOct3Result + "." + binaryOct2Result + "." + binaryOct1Result + "\n"
         + "Network Address: " + "\n" + "Broadcast Address: " + "\n" +  "First Useable Address: "
-                        + "\n" + "Last Useable Address: " + "\n" + "Ip Class: "
-                 );
+                        + "\n" + "Last Useable Address: " + "\n" + "Ip Class: " + ipClass);
     }
 }
