@@ -201,11 +201,11 @@
         android:layout_width="match_parent"
         android:layout_height="242dp"
         android:layout_marginTop="15dp"
+        android:layout_weight="0.68"
         android:background="?attr/outputFieldColor"
         android:paddingLeft="10dp"
         android:paddingTop="15dp"
-        android:textAlignment="textStart"
-        android:textColor="?attr/secondaryTextColor"
-        android:layout_weight="0.68" />
+        android:textAlignment="center"
+        android:textColor="?attr/secondaryTextColor" />
 
 </LinearLayout>

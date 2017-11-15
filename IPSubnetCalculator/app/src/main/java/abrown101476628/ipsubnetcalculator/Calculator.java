@@ -142,9 +142,9 @@ public class Calculator extends AppCompatActivity {
             ipClass = "C";
         }
         
-        outputResult.setText("Binary: " + binaryValue4 + "." + binaryValue3  + "." + binaryValue2  + "." + binaryValue1 + "\n"
-                + "Mask: " + binaryOct4Result + "." + binaryOct3Result + "." + binaryOct2Result + "." + binaryOct1Result + "\n"
-        + "Network Address: " + "\n" + "Broadcast Address: " + "\n" +  "First Useable Address: "
-                        + "\n" + "Last Useable Address: " + "\n" + "Ip Class: " + ipClass);
+        outputResult.setText("Binary IP" + "\n" + binaryValue4 + "." + binaryValue3  + "." + binaryValue2  + "." + binaryValue1
+                + "\n\n" + "Binary Mask" + "\n" + binaryOct4Result + "." + binaryOct3Result + "." + binaryOct2Result + "." + binaryOct1Result + "\n"
+        + "\n" + "Network Address" + "\n\n" + "Broadcast Address" + "\n\n" +  "First Useable Address"
+                        + "\n\n" + "Last Useable Address" + "\n\n" + "Ip Class" + "\n" + ipClass);
     }
 }
