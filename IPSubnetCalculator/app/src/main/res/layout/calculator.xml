@@ -199,12 +199,13 @@
     <TextView
         android:id="@+id/outputTextView"
         android:layout_width="match_parent"
-        android:layout_height="242dp"
-        android:layout_marginTop="15dp"
+        android:layout_height="260dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="0.68"
         android:background="?attr/outputFieldColor"
+        android:lineSpacingExtra="0sp"
         android:paddingLeft="10dp"
-        android:paddingTop="15dp"
+        android:paddingTop="10dp"
         android:textAlignment="center"
         android:textColor="?attr/secondaryTextColor" />
 

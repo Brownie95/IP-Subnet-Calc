@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.text.InputFilter;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,7 +17,6 @@ import android.widget.TextView;
 public class Calculator extends AppCompatActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (AppCompatDelegate.getDefaultNightMode()
@@ -26,6 +26,11 @@ public class Calculator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calculator);
 
+        //Scrolling
+        TextView scrollable = (TextView) findViewById(R.id.outputTextView);
+
+        //Enabling scrolling on TextView.
+        scrollable.setMovementMethod(new ScrollingMovementMethod());
 
         //Limit input fields to max value of 255
         EditText oct1 = (EditText) findViewById(R.id.octet1);
@@ -37,16 +42,18 @@ public class Calculator extends AppCompatActivity {
         EditText suboct3 = (EditText) findViewById(R.id.octetSubnet3);
         EditText suboct4 = (EditText) findViewById(R.id.octetSubnet4);
 
-        oct1.setFilters(new InputFilter[]{ new inputFilterMinMax("0", "255")});
-        oct2.setFilters(new InputFilter[]{ new inputFilterMinMax("0", "255")});
-        oct3.setFilters(new InputFilter[]{ new inputFilterMinMax("0", "255")});
-        oct4.setFilters(new InputFilter[]{ new inputFilterMinMax("0", "255")});
-        suboct1.setFilters(new InputFilter[]{ new inputFilterMinMax("0", "255")});
-        suboct2.setFilters(new InputFilter[]{ new inputFilterMinMax("0", "255")});
-        suboct3.setFilters(new InputFilter[]{ new inputFilterMinMax("0", "255")});
-        suboct4.setFilters(new InputFilter[]{ new inputFilterMinMax("0", "255")});
+        oct1.setFilters(new InputFilter[]{new inputFilterMinMax("0", "255")});
+        oct2.setFilters(new InputFilter[]{new inputFilterMinMax("0", "255")});
+        oct3.setFilters(new InputFilter[]{new inputFilterMinMax("0", "255")});
+        oct4.setFilters(new InputFilter[]{new inputFilterMinMax("0", "255")});
+        suboct1.setFilters(new InputFilter[]{new inputFilterMinMax("0", "255")});
+        suboct2.setFilters(new InputFilter[]{new inputFilterMinMax("0", "255")});
+        suboct3.setFilters(new InputFilter[]{new inputFilterMinMax("0", "255")});
+        suboct4.setFilters(new InputFilter[]{new inputFilterMinMax("0", "255")});
+
 
     }
+
 
     public void backPage(View v) {
         startActivity(new Intent(Calculator.this, MainActivity.class));
@@ -78,7 +85,12 @@ public class Calculator extends AppCompatActivity {
         int firstUsable;
 
         //broadcast Integer
-        int broadcastResult;
+        int broadcastResult3;
+        int broadcastResult2;
+        int broadcastResult1;
+
+        //Declared Integer for Last Usable Address
+        int lastUsable;
 
         //Strings for Binary converted IP Octets
         String binaryValue4;
@@ -108,7 +120,7 @@ public class Calculator extends AppCompatActivity {
         subOctet2Data = (EditText) findViewById(R.id.octetSubnet2);
         subOctet1Data = (EditText) findViewById(R.id.octetSubnet1);
 
-        outputResult =  (TextView) findViewById(R.id.outputTextView);
+        outputResult = (TextView) findViewById(R.id.outputTextView);
 
         //Passes ip octet Integers into String values
         ipValue4 = Integer.parseInt(octet4Data.getText().toString());
@@ -140,27 +152,60 @@ public class Calculator extends AppCompatActivity {
         network2Result = ipValue2 & subnetValue2;
         network1Result = ipValue1 & subnetValue1;
 
+        //Broadcast Address
+        String invertedSubnet1 = binaryOct1Result;
+        String invertedSubnet2 = binaryOct2Result;
+        String invertedSubnet3 = binaryOct3Result;
+
+        invertedSubnet1 = invertedSubnet1.replaceAll("0", "x").replaceAll("1", "0").replaceAll("x", "1");
+        invertedSubnet2 = invertedSubnet2.replaceAll("0", "x").replaceAll("1", "0").replaceAll("x", "1");
+        invertedSubnet3 = invertedSubnet3.replaceAll("0", "x").replaceAll("1", "0").replaceAll("x", "1");
+
+        invertedSubnet3 = invertedSubnet3.replaceAll("0", "x").replaceAll("1", "0").replaceAll("x", "1");
+
+        int inverted1 = Integer.parseInt(invertedSubnet1, 2);
+        int inverted2 = Integer.parseInt(invertedSubnet2, 2);
+        int inverted3 = Integer.parseInt(invertedSubnet3, 2);
+
+        if (subnetValue3 <= 254) {
+            broadcastResult3 = ipValue3 | inverted3;
+        } else
+            broadcastResult3 = network3Result;
+
+        if (subnetValue2 <=254) {
+            broadcastResult2 = ipValue2 | inverted2;
+        } else
+            broadcastResult2 = network2Result;
+
+            broadcastResult1 = ipValue1 | inverted1;
+
+
+
+
+        //First Usable Address
+        firstUsable = network1Result + 1;
+
+        //Last Usable Address
+        lastUsable = broadcastResult1 - 1;
+
         //Checking IP Class
         ipClass = "";
 
-        if (network3Result == 00000000) {
+        if (network3Result <= 11111110) {
             ipClass = "A";
-        } else if (network2Result == 00000000){
+        } else if (network2Result <= 11111110){
             ipClass = "B";
         } else if (network1Result >= 00000000) {
             ipClass = "C";
         }
 
-        firstUsable = network1Result + 1;
-
-        broadcastResult = 255 - subnetValue1;
         
         outputResult.setText("Binary IP" + "\n" + binaryValue4 + "." + binaryValue3  + "." + binaryValue2  + "." + binaryValue1
                 + "\n\n" + "Binary Mask" + "\n" + binaryOct4Result + "." + binaryOct3Result + "." + binaryOct2Result + "." + binaryOct1Result
                 + "\n" + "\n" + "Network Address" + "\n" + network4Result + "." + network3Result + "." + network2Result + "." + network1Result +
-                "\n\n" + "Broadcast Address" + "\n" + broadcastResult + "\n\n" +
+                "\n\n" + "Broadcast Address" + "\n" + network4Result + "." + broadcastResult3 + "." + broadcastResult2+ "." + broadcastResult1 + "\n\n" +
                 "First Usable Address" + "\n"  + network4Result + "." + network3Result + "." + network2Result + "." + firstUsable + "\n\n" +
-                "Last Usable Address" + "\n\n" +
+                "Last Usable Address" + "\n" + network4Result + "." + broadcastResult3 + "." + broadcastResult2 + "." + lastUsable + "\n\n" +
                 "Ip Class" + "\n" + ipClass);
     }
 }
