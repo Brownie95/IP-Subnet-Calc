@@ -161,8 +161,6 @@ public class Calculator extends AppCompatActivity {
         invertedSubnet2 = invertedSubnet2.replaceAll("0", "x").replaceAll("1", "0").replaceAll("x", "1");
         invertedSubnet3 = invertedSubnet3.replaceAll("0", "x").replaceAll("1", "0").replaceAll("x", "1");
 
-        invertedSubnet3 = invertedSubnet3.replaceAll("0", "x").replaceAll("1", "0").replaceAll("x", "1");
-
         int inverted1 = Integer.parseInt(invertedSubnet1, 2);
         int inverted2 = Integer.parseInt(invertedSubnet2, 2);
         int inverted3 = Integer.parseInt(invertedSubnet3, 2);
@@ -178,9 +176,7 @@ public class Calculator extends AppCompatActivity {
             broadcastResult2 = network2Result;
 
             broadcastResult1 = ipValue1 | inverted1;
-
-
-
+        
 
         //First Usable Address
         firstUsable = network1Result + 1;
