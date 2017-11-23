@@ -9,6 +9,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by AndyA on 26/10/2017.
@@ -50,8 +51,6 @@ public class Calculator extends AppCompatActivity {
         suboct2.setFilters(new InputFilter[]{new inputFilterMinMax("0", "255")});
         suboct3.setFilters(new InputFilter[]{new inputFilterMinMax("0", "255")});
         suboct4.setFilters(new InputFilter[]{new inputFilterMinMax("0", "255")});
-
-
     }
 
 
@@ -107,7 +106,6 @@ public class Calculator extends AppCompatActivity {
         //Declared String for the ip Class
         String ipClass;
 
-
         //Ip Octets
         octet4Data = (EditText) findViewById(R.id.octet4);
         octet3Data = (EditText) findViewById(R.id.octet3);
@@ -121,6 +119,23 @@ public class Calculator extends AppCompatActivity {
         subOctet1Data = (EditText) findViewById(R.id.octetSubnet1);
 
         outputResult = (TextView) findViewById(R.id.outputTextView);
+
+        if(octet4Data.getText().toString()== "") {
+            Toast.makeText(this, "You must enter numbers in all Fields ", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(octet3Data.getText().toString()== "") {
+            Toast.makeText(this, "You must enter numbers in all Fields ", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(octet2Data.getText().toString()== "") {
+            Toast.makeText(this, "You must enter numbers in all Fields ", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(octet1Data.getText().toString()== "") {
+            Toast.makeText(this, "You must enter numbers in all Fields ", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         //Passes ip octet Integers into String values
         ipValue4 = Integer.parseInt(octet4Data.getText().toString());
