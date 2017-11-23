@@ -176,7 +176,7 @@ public class Calculator extends AppCompatActivity {
             broadcastResult2 = network2Result;
 
             broadcastResult1 = ipValue1 | inverted1;
-        
+
 
         //First Usable Address
         firstUsable = network1Result + 1;
