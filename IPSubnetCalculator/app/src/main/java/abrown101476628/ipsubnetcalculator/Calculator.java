@@ -120,19 +120,19 @@ public class Calculator extends AppCompatActivity {
 
         outputResult = (TextView) findViewById(R.id.outputTextView);
 
-        if(octet4Data.getText().toString()== "") {
+        if(octet4Data.getText().toString().equals("")) {
             Toast.makeText(this, "You must enter numbers in all Fields ", Toast.LENGTH_SHORT).show();
             return;
         }
-        if(octet3Data.getText().toString()== "") {
+        if(octet3Data.getText().toString().equals("")) {
             Toast.makeText(this, "You must enter numbers in all Fields ", Toast.LENGTH_SHORT).show();
             return;
         }
-        if(octet2Data.getText().toString()== "") {
+        if(octet2Data.getText().toString().equals("")) {
             Toast.makeText(this, "You must enter numbers in all Fields ", Toast.LENGTH_SHORT).show();
             return;
         }
-        if(octet1Data.getText().toString()== "") {
+        if(octet1Data.getText().toString().equals("")) {
             Toast.makeText(this, "You must enter numbers in all Fields ", Toast.LENGTH_SHORT).show();
             return;
         }
